@@ -20,8 +20,33 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'"
+    },
+
+    browserify: {
+      tests: true
+    },
+
+    torii: {
+      allowUnsafeRedirects: true,
+      providers: {
+        'facebook-oauth2': {
+          apiKey: '631252926924840'
+        }
+      }
+    },
+
+    apiHost: 'http://localhost:4200',
+
+    googleClientID: '694766332436-1g5bakjoo5flkfpv3t2mfsch9ghg7ggd.apps.googleusercontent.com',
+
+    // esaVersion: require('package.json').version
   };
+
+  
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
